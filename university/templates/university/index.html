@@ -10,6 +10,7 @@
     <div class="main_h1__text">
         <h1 class="display-1">Universities</h1>
     </div>
+
     <div class="main_table">
         <table class="table table-hover table-dark">
             <thead>
@@ -29,5 +30,13 @@
                 </tbody>
             {% endfor %}
         </table>
+    </div>
+
+    <div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit">
+        </form>
     </div>
 {% endblock %}
