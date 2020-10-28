@@ -8,7 +8,7 @@ from .models import University
 from .forms import UniversityForm
 
 
-def register_page(request):
+def register_page(request) -> render or redirect:
     form = UserCreationForm()
     if request.method == "POST":
         form = UserCreationForm(request.POST)
@@ -24,7 +24,7 @@ def register_page(request):
     return render(request, 'university/authentication/register.html', context)
 
 
-def login_page(request):
+def login_page(request) -> render or redirect:
     form = AuthenticationForm()
     if request.method == "POST":
         username = request.POST.get('username')
@@ -44,7 +44,7 @@ def login_page(request):
 
 
 @login_required(login_url='/sign-in')
-def main(request):
+def main(request) -> render:
     form = UniversityForm()
 
     if request.method == 'POST':
@@ -59,13 +59,13 @@ def main(request):
     return render(request, 'university/index.html', context)
 
 
-def logout_user(request):
+def logout_user(request) -> redirect:
     logout(request)
     return redirect('/sign-in')
 
 
 @login_required(login_url='/sign-in')
-def university_page_delete(request, pk):
+def university_page_delete(request, pk) -> render or redirect:
     database = University.objects.get(id=pk)
     if request.method == "POST":
         database.delete()
