@@ -9,13 +9,12 @@
         <h1 class="mt-5">University</h1>
         <p class="lead">{{ university.university_name }}</p>
         <p class="lead">{{ university.university_description }}</p>
-
-{#        <button type="submit" class="btn btn-danger">DELETE</button>#}
     </main>
+
     <form action="" method="POST">
         {% csrf_token %}
         <a href="{% url 'index' %}">Cancel</a>
 
-        <input type="submit" name="Confrim">
+        <input type="submit" name="Confirm">
     </form>
 {% endblock %}
