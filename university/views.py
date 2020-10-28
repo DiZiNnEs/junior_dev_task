@@ -1,4 +1,4 @@
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, authenticate
@@ -43,7 +43,7 @@ def login_page(request):
     return render(request, 'university/authentication/login.html', context)
 
 
-@login_required(login_url='sign-in')
+@login_required(login_url='/sign-in')
 def main(request):
     form = UniversityForm()
 
@@ -59,6 +59,12 @@ def main(request):
     return render(request, 'university/index.html', context)
 
 
+def logout_user(request):
+    logout(request)
+    return redirect('/sign-in')
+
+
+@login_required(login_url='/sign-in')
 def university_page_delete(request, pk):
     database = University.objects.get(id=pk)
     if request.method == "POST":
