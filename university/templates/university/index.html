@@ -2,6 +2,8 @@
 
 {% block head %}
     <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'university/style.css' %}">
 {% endblock %}
 
 {% block body %}
@@ -13,12 +15,12 @@
             <th scope="col">Short description</th>
         </tr>
         </thead>
-        {% for x in university %}
+        {% for data_from_databases in university %}
             <tbody>
             <tr>
                 <th scope="row">1</th>
-                <td>{{ x.university_name }}</td>
-                <td>{{ x.university_description }}</td>
+                <td>{{ data_from_databases.university_name }}</td>
+                <td>{{ data_from_databases.university_description }}</td>
             </tr>
             </tbody>
         {% endfor %}
