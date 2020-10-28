@@ -10,8 +10,8 @@
 </head>
 <body>
 <div>
-    <h1>{{ request.user }}</h1>
-    <a href="{% url 'logout' %}">logout</a>
+    <h3>Hello, {{ request.user }}</h3>
+    <h4><a href="{% url 'logout' %}">logout</a></h4>
 </div>
 {% block body %}
 
