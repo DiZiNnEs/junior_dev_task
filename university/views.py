@@ -1,7 +1,45 @@
+from django.contrib.auth import login
 from django.shortcuts import render, redirect
+
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, authenticate
 
 from .models import University
 from .forms import UniversityForm
+
+
+def register_page(request):
+    form = UserCreationForm()
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('')
+        else:
+            print('form is not valid')
+    else:
+        print('request is not POST')
+
+    context = {'form': form}
+    return render(request, 'university/authentication/register.html', context)
+
+
+def login_page(request):
+    form = AuthenticationForm()
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('/')
+        else:
+            print('form is not valid')
+    else:
+        print('request is not POST')
+
+    context = {'form': form}
+    return render(request, 'university/authentication/login.html', context)
 
 
 def main(request):
