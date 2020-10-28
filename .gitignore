@@ -1,2 +1,5 @@
 # JetBrains
 .idea
+
+# SQLite3
+db.sqlite3
