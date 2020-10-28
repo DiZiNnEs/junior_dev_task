@@ -7,8 +7,10 @@
 {% block body %}
     <main role="main" class="container">
         <h1 class="mt-5">University</h1>
-        <p class="lead">{{ university.university_name }}</p>
-        <p class="lead">{{ university.university_description }}</p>
+        <p class="lead">Name: {{ university.university_name }}</p>
+        <p class="lead">Address: {{ university.address }}</p>
+        <p class="lead">Description: {{ university.university_description }}</p>
+        <p class="lead">Items: {{ university.items }}</p>
     </main>
 
     <form action="" method="POST">

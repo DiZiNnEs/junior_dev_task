@@ -17,7 +17,9 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">University</th>
+                <th scope="col">Address</th>
                 <th scope="col">Short description</th>
+                <th scope="col">Items</th>
             </tr>
             </thead>
             {% for data_from_databases in university %}
@@ -27,6 +29,8 @@
                     <td><a href="/university/{{ data_from_databases.id }}">{{ data_from_databases.university_name }}</a>
                     </td>
                     <td>{{ data_from_databases.university_description }}</td>
+                    <td>{{ data_from_databases.address }}</td>
+                    <td>{{ data_from_databases.items }}</td>
                 </tr>
                 </tbody>
             {% endfor %}
