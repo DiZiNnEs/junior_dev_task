@@ -17,3 +17,10 @@ def main(request):
     context = {'university': database,
                'form': form}
     return render(request, 'university/index.html', context)
+
+
+def university_page(request, pk):
+    database = University.objects.get(id=pk)
+    context = {'university': database}
+    print(1)
+    return render(request, 'university/university_page.html', context)
