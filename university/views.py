@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import University
 from .forms import UniversityForm
@@ -19,8 +19,11 @@ def main(request):
     return render(request, 'university/index.html', context)
 
 
-def university_page(request, pk):
+def university_page_delete(request, pk):
     database = University.objects.get(id=pk)
+    if request.method == "POST":
+        database.delete()
+        return redirect('/')
+
     context = {'university': database}
-    print(1)
     return render(request, 'university/university_page.html', context)

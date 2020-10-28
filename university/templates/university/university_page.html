@@ -10,7 +10,12 @@
         <p class="lead">{{ university.university_name }}</p>
         <p class="lead">{{ university.university_description }}</p>
 
-        <button type="submit" class="btn btn-danger">DELETE</button>
-
+{#        <button type="submit" class="btn btn-danger">DELETE</button>#}
     </main>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <a href="{% url 'index' %}">Cancel</a>
+
+        <input type="submit" name="Confrim">
+    </form>
 {% endblock %}
