@@ -3,3 +3,10 @@
 
 # SQLite3
 db.sqlite3
+junior_dev_task/__pycache__/
+university/__pycache__/
+university/migrations/0001_initial.py
+university/migrations/0002_auto_20201029_0159.py
+university/migrations/0003_auto_20201029_0215.py
+university/migrations/0004_auto_20201029_0220.py
+university/migrations/__pycache__/
