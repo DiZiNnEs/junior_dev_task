@@ -1,3 +1,8 @@
-body {
-    background-color: aqua;
+.main_table {
+    width: 90%;
+    padding: 200px 110px 0px 220px;
+}
+
+.main_h1__text {
+    padding: 100px 0px 0px 400px;
 }

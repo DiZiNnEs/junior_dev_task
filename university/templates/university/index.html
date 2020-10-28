@@ -7,22 +7,27 @@
 {% endblock %}
 
 {% block body %}
-    <table class="table table-hover table-dark">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">University</th>
-            <th scope="col">Short description</th>
-        </tr>
-        </thead>
-        {% for data_from_databases in university %}
-            <tbody>
+    <div class="main_h1__text">
+        <h1 class="display-1">Universities</h1>
+    </div>
+    <div class="main_table">
+        <table class="table table-hover table-dark">
+            <thead>
             <tr>
-                <th scope="row">1</th>
-                <td>{{ data_from_databases.university_name }}</td>
-                <td>{{ data_from_databases.university_description }}</td>
+                <th scope="col">#</th>
+                <th scope="col">University</th>
+                <th scope="col">Short description</th>
             </tr>
-            </tbody>
-        {% endfor %}
-    </table>
+            </thead>
+            {% for data_from_databases in university %}
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>{{ data_from_databases.university_name }}</td>
+                    <td>{{ data_from_databases.university_description }}</td>
+                </tr>
+                </tbody>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}
