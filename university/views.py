@@ -1,7 +1,19 @@
-from django.contrib.auth import login, logout
-from django.shortcuts import render, redirect
+from django.contrib.auth import (
+    login,
+    logout,
+)
 
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, authenticate
+from django.shortcuts import (
+    render,
+    redirect,
+)
+
+from django.contrib.auth.forms import (
+    UserCreationForm,
+    AuthenticationForm,
+    authenticate,
+)
+
 from django.contrib.auth.decorators import login_required
 
 from django.core.handlers.wsgi import WSGIRequest
