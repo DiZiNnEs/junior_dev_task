@@ -2,6 +2,7 @@ from django.contrib.auth import login
 from django.shortcuts import render, redirect
 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, authenticate
+from django.contrib.auth.decorators import login_required
 
 from .models import University
 from .forms import UniversityForm
@@ -13,7 +14,7 @@ def register_page(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('')
+            return redirect('/')
         else:
             print('form is not valid')
     else:
@@ -42,6 +43,7 @@ def login_page(request):
     return render(request, 'university/authentication/login.html', context)
 
 
+@login_required(login_url='sign-in')
 def main(request):
     form = UniversityForm()
 
