@@ -4,11 +4,13 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, authenticate
 from django.contrib.auth.decorators import login_required
 
+from django.core.handlers.wsgi import WSGIRequest
+
 from .models import University
 from .forms import UniversityForm
 
 
-def register_page(request) -> render or redirect:
+def register_page(request: WSGIRequest) -> render or redirect:
     form = UserCreationForm()
     if request.method == "POST":
         form = UserCreationForm(request.POST)
@@ -24,7 +26,7 @@ def register_page(request) -> render or redirect:
     return render(request, 'university/authentication/register.html', context)
 
 
-def login_page(request) -> render or redirect:
+def login_page(request: WSGIRequest) -> render or redirect:
     form = AuthenticationForm()
     if request.method == "POST":
         username = request.POST.get('username')
@@ -44,9 +46,9 @@ def login_page(request) -> render or redirect:
 
 
 @login_required(login_url='/sign-in')
-def main(request) -> render:
+def main(request: WSGIRequest) -> render:
     form = UniversityForm()
-
+    print(type(request))
     if request.method == 'POST':
         print(request.POST)
         form = UniversityForm(request.POST)
@@ -59,13 +61,13 @@ def main(request) -> render:
     return render(request, 'university/index.html', context)
 
 
-def logout_user(request) -> redirect:
+def logout_user(request: WSGIRequest) -> redirect:
     logout(request)
     return redirect('/sign-in')
 
 
 @login_required(login_url='/sign-in')
-def university_page_delete(request, pk) -> render or redirect:
+def university_page_delete(request: WSGIRequest, pk: str) -> render or redirect:
     database = University.objects.get(id=pk)
     if request.method == "POST":
         database.delete()
