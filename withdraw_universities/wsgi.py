@@ -1,5 +1,5 @@
 """
-WSGI config for junior_dev_task project.
+WSGI config for withdraw_universities project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'junior_dev_task.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'withdraw_universities.settings')
 
 application = get_wsgi_application()
